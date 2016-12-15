@@ -1,4 +1,35 @@
 var Helper = {
+	//下拉列表选择框
+	/*selectBox:function(config,callback){
+		var _obj = Helper.jQueryDom(config);
+		if (_obj && _obj.length){
+			var _children = _obj.children();
+			if (_children.length){
+				var _option = '<dl>';
+				_children.each(function(){
+					var _this = $(this);
+					var _tagName = _this[0].tagName.toLocaleLowerCase();
+					//如果存在分组标签
+					if (_tagName == "optgroup"){
+						_option += '<dt>'+ _this.attr("label") +'</dt>';
+						_this.children().each(function(){
+							var __this = $(this);
+							_option += '<dd data-value="'+ __this.val() +'">'+ __this.text() +'</dd>';
+						});
+					}else{
+						_option += '<dt data-value="'+ _this.val() +'">'+ _this.text() +'</dt>';
+					}
+				});
+				_option += '</dl>';
+			}
+			var _selectList = $('<div tabindex="-1" class="_select-box_"><div>select</div><input type="text">'+ _option +'</div>');
+			_selectList.off("click").on("click",function(){
+				alert(5)
+			});
+			_selectList.insertAfter(_obj);
+			
+		}
+	},*/
 	//定位警告时的标记位置，如：定位验证失败的输入框
 	markPosition:function(config, arg2){
 		var _obj;
@@ -485,9 +516,9 @@ var Helper = {
     	var _obj = obj;
     	if (typeof(obj)=="string" || obj instanceof HTMLElement){
     		_obj = $(obj); 
-    	}else if (obj && obj.target && typeof(obj.target)=="string" || obj.target instanceof HTMLElement){
+    	}else if (obj && obj.target && (typeof(obj.target)=="string" || obj.target instanceof HTMLElement)){
     		_obj = $(obj.target); 
-    	}else if(obj && obj.target instanceof jQuery){
+    	}else if(obj && obj.target && obj.target instanceof jQuery){
     		_obj = obj.target;
     	}
     	if (_obj instanceof jQuery){
