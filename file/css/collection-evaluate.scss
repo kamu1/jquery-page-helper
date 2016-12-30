@@ -1,0 +1,46 @@
+@charset "utf-8";
+@import "./public.scss";
+$mainMargin: 30px/2;
+.sort-search-bar{
+    padding:10px $mainMargin;
+    background: $borderGary;
+}
+.info-list{
+    margin: $mainMargin;
+    li>*{
+        border:1px solid $borderGary;
+    }
+    .essential-info{
+        padding:8px 0;
+        &>*{
+            margin:auto .5em;
+            margin-top:10px;
+            line-height: 1em;
+            .common-price{
+                font-size: 15px;
+            } 
+            .collection-ico{
+                i{
+                    width: 16px;
+                    height:16px;
+                    display: inline-block;
+                    cursor: pointer;
+                    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgBAMAAACBVGfHAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAYUExURQAAAJmZmZmZmZmZmZmZmZmZmZmZmZmZmXm0nCgAAAAIdFJOUwD8ktq3HWxB2xrBEQAAAM1JREFUKM+NUc0OwiAM7hjbrjJQrxD1Pkx2Bw96nfoCW+IDbInvH4H9WIyH9UDTj6/t1xZghWUvxk8AD82uTQA6fjkwSdj5qHc+JrwHeHN9Ayi09AQTaOGTujfjIS9vg9MN5HvcYGiBVhhIDSQGA3QDicQA+QOkcY0KyBYDdwlFiQHlVNsGzSm8FtSXepUE5ajQ0rZznIvgnss0Qz1W0v0YF3yqP1MmwkJZCI4S1tXVXz3aNco5UkidFhUtxhoqomMRYWV8PlX+3JNIWGsfoxYV/C3o3vMAAAAASUVORK5CYII=) no-repeat center;
+                    background-size:100% auto;
+                    &.selected{
+                        background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgBAMAAACBVGfHAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAVUExURQAAANQoLdQoLdQoLdQoLdQoLdQoLRk3nlMAAAAGdFJOUwDNkgogWwzAK9wAAAChSURBVCjPjZG7DsIwDEVNSpkRQZnLkjkd2NOFuRISM7HA//8JJAGDTZbcxfKR5cc1QIe2J0pXgLOjQyz54IkoraPLAUMGMxU9bzXYDDwJYe5AShGMBhNsNNjDToN7B2h6NFOaPZpN4SLBI4NRghX0dVgNmn/AVjA4zlN4e7gwOLKpn5IU2eZFF3AX7vAdZMVryiswyGeZcqeSx79/mgl69QKpzXHk/8CThwAAAABJRU5ErkJggg==) center no-repeat;
+                        background-size:100% auto;
+                    }
+                }
+            }
+            .c-left{
+                color: $mainGary;
+                b{ 
+                    margin: 0 2px;
+                    font-weight:normal;
+                    color: $mainBlack;
+                }
+            }
+        }
+    }
+}

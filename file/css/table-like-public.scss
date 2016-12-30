@@ -1,0 +1,240 @@
+@charset "utf-8";
+$mainGary: #F0F0F0;
+$mainFontBlack: #333333;
+$mainFontGary: #666666;
+$mainWhite: #FFFFFF;
+$mainRed: #D4282D;
+$mainGold: #B4A078;
+$mainGreen: #0C9515;
+$deepGary: #999999;
+$borderGary: #DDDDDD;
+$lightFontGary: #999999;
+
+$mainFontSize: 13px;
+$largeFontSize: 15px;
+
+body {
+  margin: 0;
+  font-size: $mainFontSize;
+}
+
+@mixin vertical-list{
+  list-style: none;
+  -webkit-padding-start: 0px;
+  >li{
+    display: inline-block;
+  }
+}
+
+@mixin gold-bg{
+  background: $mainGold;
+  color: $mainWhite;
+}
+
+@mixin border-solid($width:1px, $color: $borderGary,$radius: 0px){
+  width: $width;
+  style: solid;
+  color: $color;
+  radius: $radius;
+}
+
+table {
+  width: 100%;
+  margin: 10px 0 20px 0;
+  th,td{
+
+    white-space: nowrap;
+    border: {
+      @include border-solid;
+    };
+  }
+  > thead {
+    > tr {
+      background: $mainGary;
+      > th {
+        padding: 5px;
+        text-align: center;
+        font-weight: normal;
+        &.th-img{
+          width: 90px;
+        }
+      }
+    }
+  }
+
+  > tbody {
+    > tr {
+      > td {
+        color: $mainFontGary;
+        padding: 10px;
+        >img{
+          width: 70px;
+        }
+      }
+    }
+  }
+}
+
+a{
+  color: $mainFontBlack;
+  margin: 0 5px;
+  &:hover,&:focus{
+    text-decoration: none;
+    color: $mainFontBlack;
+  }
+  // price stylesheet
+  &.p-t{
+    color: inherit;
+    &:before{
+      content: "￥";
+    }
+  }
+  // percent stylesheet
+  &.pc-t{
+    color: inherit;
+    &:after{
+      content: "%";
+    }
+  }
+  // highlight text with red
+  &.h-t{
+    color: $mainRed;
+    &:hover,&:focus{
+      color: $mainRed;
+    }
+  }
+
+  // green text
+  &.g-t{
+    color: $mainGreen;
+    &:hover,&:focus{
+      color: $mainGreen;
+    }
+  }
+}
+
+// bottom information block
+.bottom-bar{
+  background: $mainGary;
+  font-size: $largeFontSize;
+  padding: 15px;
+  text-align: right;
+  >span{
+    margin-left: 20px;
+  }
+}
+
+// sort-search container
+.s-c{
+  padding: 10px 30px;
+  background: $mainGary;
+}
+
+// search area
+.s-a{
+  display: inline-block;
+  position: relative;
+  height: 33px;
+  float: right;
+  >input{
+    border: {
+      @include border-solid;
+    };
+    height: 100%;
+    width: 100%;
+    padding: 10px;
+  }
+  >button{
+    position: absolute;
+    right: 5px;
+    top: 0;
+    width: 33px;
+    height: 33px;
+    background: none;
+    border: {
+      @include border-solid(0);
+    };
+    padding: 0;
+    background: {
+      image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgBAMAAACBVGfHAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAeUExURQAAADMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzM5g5C1kAAAAKdFJOUwD+tQ9t504rzJi9HKo6AAAA40lEQVQoz21SsQ6CMBCtIqCbhxRxs4mLW2OCriCJzo3GGY0fYExMHDV+AZufK6W9loA3cPB4fe94ByH/yvsKuuD2eSCgqplBHBbv+WYLJwQetJDtDqkmiI+6yULVh4E+PICbenHAs+WrbqJAIInqGai1D+R1FBrAgVozshO+pao7sQCTcr2xBUo5Wq/NcKcNDQn0rQsBbsxVLLEyvyGgyeUcgbP6qgRFfKEC8TCYB9U5ZCpNT8AcgzlWumtGAQ2fEC+/QHOGFHKpthDnZGUoxL/uuNyHoehqUHBlXcq4TUk7f8IPLJEbhNLCCLEAAAAASUVORK5CYII=");
+      repeat: no-repeat;
+      size: 20px 20px;
+      position: center;
+    };
+
+  }
+}
+
+// main container
+.m-c{
+  padding: 30px;
+}
+
+// statistics block
+.s-b{
+  border: 1px solid $borderGary;
+  >table{
+    margin: 10px;
+    font-size: $largeFontSize;
+    td{
+      border-width: 0;
+    }
+  }
+}
+
+// content header
+.c-h{
+  font-size: $largeFontSize;
+  padding: 15px 0;
+  vertical-align: bottom;
+  >:last-child{
+    float: right;
+  }
+}
+
+// sort type selector
+.s-s{
+  border:{
+    bottom: {
+      @include border-solid(1.5px)
+    };
+  };
+  >ul{
+    @include vertical-list;
+    >li{
+      padding:7px 8px;
+      border: {
+        right: {
+          @include border-solid;
+        };
+      };
+      >a{
+        font-size: $largeFontSize;
+        padding: 5px 16px;
+        color: $lightFontGary;
+      }
+      &.active{
+        >a{
+          @include gold-bg;
+        }
+      }
+    }
+  }
+}
+
+// re-css universe component
+#distpicker{
+  display: inline-block;
+}
+
+.single-s{
+  padding: 5px 30px 5px 20px;
+  height:33px;
+  color: $lightFontGary;
+  border: {
+    @include border-solid(1px, $borderGary, 4px);
+  };
+}
+
+
+

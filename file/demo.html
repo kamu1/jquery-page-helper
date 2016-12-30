@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>demo</title>
+		<!--公用样式-->
+		<link rel="stylesheet" type="text/css" href="http://static.pinpai.org/resource/css/public.css" />
+		<!--jQuery 插件-->
+		<script src="http://static.pinpai.org/resource/js/plugin/jquery/jquery.min.js"></script>
+		<!--bootstrap 插件-->
+		<link rel="stylesheet" href="http://static.pinpai.org/resource/js/plugin/bootstrap/bootstrap.min.css">
+		<script src="http://static.pinpai.org/resource/js/plugin/bootstrap/bootstrap.min.js"></script>
+		<!--多项下拉选择框 插件-->
+		<link rel="stylesheet" type="text/css" href="http://static.pinpai.org/resource/js/plugin/bootstrap/bootstrap-select.css" />
+		<script src="http://static.pinpai.org/resource/js/plugin/bootstrap/bootstrap-select.js"></script>
+		<!--辅助插件，弹窗，轻提示等-->
+		<script src="http://static.pinpai.org/resource/js/common/helper.js"></script>
+		<style type="text/css">
+			html,
+			body {
+				height: 100%;
+				margin: 0;
+				padding: 0;
+			}
+			
+			body {
+				/*text-shadow: 1px 1px 0px #FFF;*/
+			}
+			
+			._fixed-alert_ {
+				text-shadow: none;
+			}
+			
+			body .btn {
+				border-radius: 4px;
+			}
+			
+			a,
+			a:hover,
+			a:focus {
+				color: #000;
+			}
+			
+			body>h3 {
+				font-size: 15px;
+				font-weight: bold;
+				border-bottom: 1px solid #CCC;
+				padding: 10px;
+				margin: 0;
+			}
+			
+			body>* {
+				padding: 10px;
+			}
+			
+			body pre {
+				margin-top: 1em;
+			}
+			
+			.toggle-checkbox {
+				display: none;
+			}
+			
+			.toggle-checkbox+ *+ * pre {
+				overflow: hidden;
+				height: 0;
+				opacity: 0;
+				padding: 0;
+				margin: 0;
+				transition-duration: 300ms;
+			}
+			
+			.toggle-checkbox:checked+ *+ * pre {
+				overflow: auto;
+				height: auto;
+				opacity: 1;
+				padding: 10px;
+				margin-top: 10px;
+			}
+			
+			.toggle-checkbox+ * label.btn:before {
+				content: "查看代码";
+			}
+			
+			.toggle-checkbox+ * label.btn:after {
+				content: "";
+				display: inline-block;
+				border: 5px solid transparent;
+				border-top-color: #FFF;
+				border-bottom: none;
+				vertical-align: middle;
+				margin-left: 3px;
+			}
+			
+			.toggle-checkbox:checked+ * label.btn:before {
+				content: "收起";
+			}
+			
+			.toggle-checkbox:checked+ * label.btn:after {
+				content: "";
+				display: inline-block;
+				border: 5px solid transparent;
+				border-bottom-color: #FFF;
+				border-top: none;
+				vertical-align: middle;
+				margin-left: 3px;
+			}
+			
+			.small-ico img {
+				margin-left: 1em;
+			}
+		</style>
+	</head>
+
+	<body>
+		<input type="checkbox" name="" class="toggle-checkbox" />
+		<h3><span>相关文件引用</span>&nbsp;&nbsp;&nbsp;<label class="btn btn-primary"></label></h3>
+		<div>
+			<pre>
+&lt;!--此示例只在当前版本下测试通过，若混用时，自行注意版本问题--&gt;
+&lt;!--公用样式--&gt;
+&lt;link rel="stylesheet" type="text/css" href="http://static.pinpai.org/resource/css/public.css"/&gt;
+
+&lt;!--jQuery 插件--&gt;
+&lt;script src="http://static.pinpai.org/resource/js/plugin/jquery/jquery.min.js"&gt;&lt;/script&gt;
+
+&lt;!--bootstrap 插件--&gt;
+&lt;link rel="stylesheet" href="http://static.pinpai.org/resource/js/plugin/bootstrap/bootstrap.min.css"&gt;
+&lt;script src="http://static.pinpai.org/resource/js/plugin/bootstrap/bootstrap.min.js"&gt;&lt;/script&gt;
+
+&lt;!--多项下拉选择框 插件--&gt;
+&lt;link rel="stylesheet" type="text/css" href="http://static.pinpai.org/resource/js/plugin/bootstrap/bootstrap-select.css"/&gt;
+&lt;script src="http://static.pinpai.org/resource/js/plugin/bootstrap/bootstrap-select.js"&gt;&lt;/script&gt;
+
+&lt;!--地区联动选择--&gt;
+&lt;script src="http://static.pinpai.org/resource/js/plugin/bootstrap/bootstrap-distpicker.data.min.js"&gt;&lt;/script&gt;
+&lt;script src="http://static.pinpai.org/resource/js/plugin/bootstrap/bootstrap-distpicker.min.js"&gt;&lt;/script&gt;
+
+&lt;!--日期时间选择--&gt;
+&lt;link rel="stylesheet" type="text/css" href="http://static.pinpai.org/resource/js/plugin/bootstrap/bootstrap-datetimepicker.min.css"/&gt;
+&lt;script type="text/javascript" src="http://static.pinpai.org/resource/js/plugin/bootstrap/bootstrap-datetimepicker.min.js"&lt;/script&gt;
+&lt;script type="text/javascript" src="http://static.pinpai.org/resource/js/plugin/bootstrap/locales/bootstrap-datetimepicker.fr.js" &lt;/script&gt;
+
+&lt;!--辅助插件，弹窗，轻提示等--&gt;
+&lt;script src="http://static.pinpai.org/resource/js/common/helper.js"&gt;&lt;/script&gt;
+</pre>
+		</div>
+		<h3>小图标base64编码（右键直接复制图片地址即可）</h3>
+		<div class="small-ico">
+			2倍大小(&lt;=32*32)，1倍大小(&lt;=16*16)
+			<div style="padding:10px;">
+				<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgBAMAAACBVGfHAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAYUExURQAAAJmZmZmZmZmZmZmZmZmZmZmZmZmZmXm0nCgAAAAIdFJOUwD8ktq3HWxB2xrBEQAAAM1JREFUKM+NUc0OwiAM7hjbrjJQrxD1Pkx2Bw96nfoCW+IDbInvH4H9WIyH9UDTj6/t1xZghWUvxk8AD82uTQA6fjkwSdj5qHc+JrwHeHN9Ayi09AQTaOGTujfjIS9vg9MN5HvcYGiBVhhIDSQGA3QDicQA+QOkcY0KyBYDdwlFiQHlVNsGzSm8FtSXepUE5ajQ0rZznIvgnss0Qz1W0v0YF3yqP1MmwkJZCI4S1tXVXz3aNco5UkidFhUtxhoqomMRYWV8PlX+3JNIWGsfoxYV/C3o3vMAAAAASUVORK5CYII=" />
+				<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgBAMAAACBVGfHAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAVUExURQAAANQoLdQoLdQoLdQoLdQoLdQoLRk3nlMAAAAGdFJOUwDNkgogWwzAK9wAAAChSURBVCjPjZG7DsIwDEVNSpkRQZnLkjkd2NOFuRISM7HA//8JJAGDTZbcxfKR5cc1QIe2J0pXgLOjQyz54IkoraPLAUMGMxU9bzXYDDwJYe5AShGMBhNsNNjDToN7B2h6NFOaPZpN4SLBI4NRghX0dVgNmn/AVjA4zlN4e7gwOLKpn5IU2eZFF3AX7vAdZMVryiswyGeZcqeSx79/mgl69QKpzXHk/8CThwAAAABJRU5ErkJggg==" />
+				<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcAgMAAAAPYzcHAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAMUExURQAAAGZmZmZmZmZmZunMZvAAAAAEdFJOUwBD50ShwbWhAAAAXUlEQVQI12NggAIVMCnBIAmmUxjYHIAU4wQQYgBzUoC0JBSnQMTAckACrBYoCNErCZYGKnCcAKYZpzlArMhkQKFh4jB1MH1Qc2DmwuyB2Qt1B8xdMHdaQvXC/AEFABn5EGGQhylhAAAAAElFTkSuQmCC" />
+				<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgBAMAAACBVGfHAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAbUExURQAAAJmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmQN15XwAAAAIdFJOUwB/Si1oHN6q+EMXQwAAAG1JREFUKM9jYMADWDo62hSQBSIKBcUSkAUsFBgYG4gRcBQUDEAWYO/o6EhAFuAQYGBpRhNgoo4As5KSAYpARUdHO7IAa7uxcUUAskALA4PHMBRgSxQUb2VoExTMgEYlU0ZHhwODW0dHCmZkgwEAVqpEOXzmlsQAAAAASUVORK5CYII=" />
+				<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgBAMAAACBVGfHAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAeUExURQAAADMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzM5g5C1kAAAAKdFJOUwD+tQ9t504rzJi9HKo6AAAA40lEQVQoz21SsQ6CMBCtIqCbhxRxs4mLW2OCriCJzo3GGY0fYExMHDV+AZufK6W9loA3cPB4fe94ByH/yvsKuuD2eSCgqplBHBbv+WYLJwQetJDtDqkmiI+6yULVh4E+PICbenHAs+WrbqJAIInqGai1D+R1FBrAgVozshO+pao7sQCTcr2xBUo5Wq/NcKcNDQn0rQsBbsxVLLEyvyGgyeUcgbP6qgRFfKEC8TCYB9U5ZCpNT8AcgzlWumtGAQ2fEC+/QHOGFHKpthDnZGUoxL/uuNyHoehqUHBlXcq4TUk7f8IPLJEbhNLCCLEAAAAASUVORK5CYII=" />
+				<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAOBAMAAADQ9FGEAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAASUExURQAAAAAAAAAAAAAAAAAAAAAAAOArGaIAAAAFdFJOUwBUFOmoypr2lwAAAEBJREFUCNdjYIADllAIcGBgMgUzghUYGETBrEC4tAOQBZYGSUKkA+G6HcAsoDREEiQdCDfcAcpiMlaA2SjIgAIAlusP8Yigo/gAAAAASUVORK5CYII=" />
+				<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAYBAMAAAA46dFkAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAPUExURQAAAGZmZmZmZmZmZmZmZjDcV08AAAAFdFJOUwAy6FSnqd0ZmAAAACZJREFUCNdjYBFgAANGRQjNYAQVYKaCAIsCCh8mTw4X5j6Ye6EAAKrBBEXPhD1gAAAAAElFTkSuQmCC" />
+				<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAYBAMAAAA46dFkAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAPUExURQAAAGZmZmZmZmZmZmZmZjDcV08AAAAFdFJOUwANxphxO7l1JgAAACNJREFUCNdjYAABRgEwxSDkAOEqQ7kGFHPhNEycOgIOUAEBAMghBMOS+6OuAAAAAElFTkSuQmCC" />
+				<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAQBAMAAAD+CqKmAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAbUExURQAAANQoLdQoLdQoLdQoLdQoLdQoLdQoLdQoLZOhOEAAAAAJdFJOUwD7qgXLTmQRNlTArZ8AAABTSURBVAjXY2DADloUEGwOQQcEp1GkAEnCnYGBNQFJglEIIcHAJqgM4gRCdCQKGQAVgyWgUoEiBhCtQClWiFqIVKCQAcyKQBG4BEg3QgIopYzF3QA5iQososeHnwAAAABJRU5ErkJggg==" />
+				<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgBAMAAACBVGfHAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAbUExURQAAAJmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmQN15XwAAAAIdFJOUwCi0DsZ7mJ6ympx5gAAAORJREFUKM91ULsKwkAQvDx8lCZapFRsrtSAj1IhaiuYkJSCEi0jErE0keh+tm4u7p2gU8ztzN2yO8fYbwx53lb1HN7oSG3ycGCk+YwMHWuTd8k4+siLBxl8i1zPyYCv491dXfHZP4NBWZnUwpwEuZGRMd0gj+5kaMWAMSNqyd2dfDfmmRKuEQEUiRp3aff2qp6cLMs6S51CifCjXehd4vhgQ19oI6oKF6fjP9A8xxcHLaSVKY2CQpoR9mhPOe6Kj3WZiU3xn2s3aTTXSKqBtZ7tPCG9sdMt9wKC2GxlB0IG34krvAB4LDO4I6BaIAAAAABJRU5ErkJggg==" />
+				<img data-toggle="tooltip" title="1比1透明图" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAADUExURQAAAKd6PdoAAAABdFJOUwBA5thmAAAACklEQVQI12NgAAAAAgAB4iG8MwAAAABJRU5ErkJggg==" style="height:32px;border:1px solid #ccc" />
+				<img data-toggle="tooltip" title="9比12透明图" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAMAQMAAACKkgXgAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAADUExURQAAAKd6PdoAAAABdFJOUwBA5thmAAAAC0lEQVQI12NgIAwAACQAAS4ecaAAAAAASUVORK5CYII=" style="height:32px;border:1px solid #CCC" />
+			</div>
+		</div>
+		<input type="checkbox" name="" class="toggle-checkbox" />
+		<h3>复选框(先使用，样式统一调整)&nbsp;&nbsp;&nbsp;<label class="btn btn-primary"></label></h3>
+		<div>
+			<label><input type="checkbox" class="checkbox" /><s></s>checkbox</label>
+			<label><input type="checkbox" class="checkbox" checked="" /><s></s>checkbox</label>
+			<label><input type="checkbox" class="checkbox" disabled="" /><s></s>checkbox</label>
+			<label><input type="checkbox" class="checkbox" checked="" disabled="" /><s></s>checkbox</label>
+			<pre>
+&lt;label&gt;&lt;input type="checkbox" class="checkbox" /&gt;&lt;s&gt;&lt;/s&gt;checkbox&lt;/label&gt;
+&lt;label&gt;&lt;input type="checkbox" class="checkbox" checked="" /&gt;&lt;s&gt;&lt;/s&gt;checkbox&lt;/label&gt;
+&lt;label&gt;&lt;input type="checkbox" class="checkbox" disabled="" /&gt;&lt;s&gt;&lt;/s&gt;checkbox&lt;/label&gt;
+&lt;label&gt;&lt;input type="checkbox" class="checkbox" checked="" disabled="" /&gt;&lt;s&gt;&lt;/s&gt;checkbox&lt;/label&gt;
+</pre>
+		</div>
+		<input type="checkbox" name="" class="toggle-checkbox" />
+		<h3>单选框(先使用，样式统一调整)&nbsp;&nbsp;&nbsp;<label class="btn btn-primary"></label></h3>
+		<div>
+			<label><input type="radio" class="checkbox" name="r" /><s></s>radio</label>
+			<label><input type="radio" class="checkbox" name="r" checked="" /><s></s>radio</label>
+			<label><input type="radio" class="checkbox" name="r" disabled="" /><s></s>radio</label>
+			<label><input type="radio" class="checkbox" checked="" disabled="" /><s></s>radio</label>
+			<pre>
+&lt;label&gt;&lt;input type="radio" class="checkbox" name="r" /&gt;&lt;s&gt;&lt;/s&gt;radio&lt;/label&gt;
+&lt;label&gt;&lt;input type="radio" class="checkbox" name="r" checked="" /&gt;&lt;s&gt;&lt;/s&gt;radio&lt;/label&gt;
+&lt;label&gt;&lt;input type="radio" class="checkbox" name="r" disabled="" /&gt;&lt;s&gt;&lt;/s&gt;radio&lt;/label&gt;
+&lt;label&gt;&lt;input type="radio" class="checkbox" checked="" disabled="" /&gt;&lt;s&gt;&lt;/s&gt;radio&lt;/label&gt;
+</pre>
+		</div>
+
+		<input type="checkbox" name="" class="toggle-checkbox" />
+		<h3>按钮&上传按钮&nbsp;&nbsp;&nbsp;<label class="btn btn-primary"></label></h3>
+		<div>
+			<button class="button">button按钮</button>&nbsp;&nbsp;
+			<a class="button" href="javascript:;">a标签按钮</a>&nbsp;&nbsp;
+			<span class="button">无样式上传按钮<input type="file"/></span>&nbsp;&nbsp;
+			<span class="btn">普通bootstrap上传<input type="file"/></span>&nbsp;&nbsp;
+			<span class="btn btn-default">默认bootstrap上传<input type="file"/></span>&nbsp;&nbsp;
+			<pre>
+&lt;!-- 无样式按钮 --&gt;
+&lt;button class="button"&gt;button按钮&lt;/button&gt;
+&lt;!-- a标签按钮 --&gt;
+&lt;a class="button" href="#"&gt;a标签按钮&lt;/a&gt;
+&lt;span class="button"&gt;无样式上传按钮&lt;input type="file"/&gt;&lt;/span&gt;
+&lt;!-- bootstrap按钮 --&gt;
+&lt;span class="btn"&gt;普通bootstrap上传&lt;input type="file"/&gt;&lt;/span&gt;
+&lt;span class="btn btn-default"&gt;默认bootstrap上传&lt;input type="file"/&gt;&lt;/span&gt;
+&lt;!-- 去掉 &lt;input type="file"/&gt; 标签即为普通按钮 --&gt;
+</pre>
+		</div>
+		<input type="checkbox" name="" class="toggle-checkbox" />
+		<h3>圆点（.common-dot）&nbsp;&nbsp;&nbsp;<label class="btn btn-primary"></label></h3>
+		<div>
+			<span class="common-dot">我的动态<u></u></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<a class="common-dot" href="javascript:;">我的说说<u data-text="89"></u></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<a class="common-dot" href="javascript:;">我的消息<u data-text="矩形" class="rectangle"></u></a>
+			<pre>
+&lt;span class="common-dot"&gt;我的动态&lt;u class="dot"&gt;&lt;/u&gt;&lt;/span&gt;
+&lt;a class="common-dot" href="#"&gt;我的说说&lt;u data-text="89"&gt;&lt;/u&gt;&lt;/a&gt;
+&lt;a class="common-dot" href="#"&gt;我的消息&lt;u data-text="矩形" class="rectangle"&gt;&lt;/u&gt;&lt;/a&gt;
+</pre>
+		</div>
+		<input type="checkbox" name="" class="toggle-checkbox" />
+		<h3>垂直居中(.vmc)&nbsp;&nbsp;&nbsp;<label class="btn btn-primary"></label></h3>
+		<div>
+			<div class="vmc" style="width:200px;height:100px;border: 2px solid dodgerblue;">
+				<div style="width:20%;height:60%;background: dodgerblue"></div>
+			</div>
+			<pre>
+&lt;!-- 用在图片或弹窗正居中等场景 --&gt;
+&lt;div class="vmc" style="height:100px"&gt;
+    &lt;div&gt;居中&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- 弹窗居中 --&gt;
+&lt;div class="vmc" style="height:100%;width:100%;position:fixed;top:0;left:0;z-index:2;background:rgba(255,255,255,.6)"&gt;
+    &lt;div&gt;居中显示了&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+		</div>
+		<h3>加载中效果(.loading)</h3>
+		<div>
+			<button id="loading_btn">点我加载</button>
+		</div>
+		<script>
+			$("#loading_btn").on("click", function() {
+				var This = $(this);
+				This.addClass('loading');
+				setTimeout(function() {
+					This.removeClass('loading');
+				}, 1000)
+			})
+		</script>
+		
+		<input type="checkbox" name="" class="toggle-checkbox" />
+		<h3>区块列表&nbsp;&nbsp;&nbsp;<label class="btn btn-primary"></label></h3>
+		<div>
+			<div class="common-block-list">
+				<ul>
+					<li>
+						<div></div>
+					</li>
+					<li>
+						<a href="javascript:;"></a>
+					</li>
+					<li>
+						<a href="javascript:;"></a>
+					</li>
+					<li>
+						<div></div>
+					</li>
+				</ul>
+			</div>
+<pre>
+&lt;!--默认一行4个，可以添加.column-1至12改变列数 li下可以是 a 标签--&gt;
+&lt;div class="common-block-list column-4"&gt;
+    &lt;ul&gt;
+        &lt;li&gt;
+            &lt;!-- 内容写在div里面 --&gt;
+            &lt;div&gt;&lt;/div&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+            &lt;!-- 超链接可将div换成a标签 --&gt;
+            &lt;a href="#"&gt;&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+            &lt;a href="#"&gt;&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+            &lt;div&gt;&lt;/div&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+</pre>
+		</div>
+		
+		<input type="checkbox" name="" class="toggle-checkbox" />
+		<h3>图片模块&nbsp;&nbsp;&nbsp;<label class="btn btn-primary"></label></h3>
+		<div>
+			<div style="width:160px;display: inline-block;vertical-align: top;">
+				<div class="common-block-img">
+					<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAADUExURQAAAKd6PdoAAAABdFJOUwBA5thmAAAACklEQVQI12NgAAAAAgAB4iG8MwAAAABJRU5ErkJggg=="/>
+					<img src="http://static.buyerplus.org/upload/image/goods/55/181/468/ZJlsmWhoZWNilG2XmHFnaW8=.jpg" alt="">
+					<span>1比1</span>
+				</div>
+			</div>
+			<div style="width:120px;display: inline-block;vertical-align: top;" data-toggle="tooltip" title="左下：left-bottom，右上：right-top，右下：right-bottom">
+				<div class="common-block-img">
+					<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAMAQMAAACKkgXgAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAADUExURQAAAKd6PdoAAAABdFJOUwBA5thmAAAAC0lEQVQI12NgIAwAACQAAS4ecaAAAAAASUVORK5CYII="/>
+					<img src="http://static.buyerplus.org/upload/image/goods/55/181/468/ZJlsmWhoZWNilG2XmHFnaW8=.jpg" alt="">
+					<span>9比12</span>
+					<span class="left-bottom">左下</span>
+					<span class="right-top">右上</span>
+					<span class="right-bottom">右下</span>
+				</div>
+			</div>
+<pre>
+&lt;!--好处:不管上传什么尺寸的图片，都会被截取按比例显示，可放到 区块列表 中 看效果--&gt;
+&lt;!--不同的比例更换视觉比例的透明img地址即可，这里使用了base64编码--&gt;
+
+&lt;!-- 1比1 正方型--&gt;
+&lt;div class="common-block-img"&gt;
+    &lt;img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAADUExURQAAAKd6PdoAAAABdFJOUwBA5thmAAAACklEQVQI12NgAAAAAgAB4iG8MwAAAABJRU5ErkJggg=="/&gt;
+    &lt;img src="http://static.buyerplus.org/upload/image/goods/55/181/468/ZJlsmWhoZWNilG2XmHFnaW8=.jpg" alt=""&gt;
+    &lt;span&gt;1比1&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;!-- 9比12 长方型--&gt;
+<div style="color: #999">&lt;div class="common-block-img"&gt;<div style="color: #333;">    &lt;img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAMAQMAAACKkgXgAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAADUExURQAAAKd6PdoAAAABdFJOUwBA5thmAAAAC0lEQVQI12NgIAwAACQAAS4ecaAAAAAASUVORK5CYII="/&gt;</div>&lt;img src="http://static.buyerplus.org/upload/image/goods/55/181/468/ZJlsmWhoZWNilG2XmHFnaW8=.jpg" alt=""&gt;
+    &lt;span&gt;9比12&lt;/span&gt;
+    &lt;span class="left-bottom"&gt;左下&lt;/span&gt;
+    &lt;span class="right-top"&gt;右上&lt;/span&gt;
+    &lt;span class="right-bottom"&gt;右下&lt;/span&gt;
+&lt;/div&gt;</div>
+</pre>
+		</div>
+		<input type="checkbox" name="" class="toggle-checkbox" />
+		<h3>左右区块浮动&nbsp;&nbsp;&nbsp;<label class="btn btn-primary"></label></h3>
+		<div>
+			<div style="width:300px;border:1px solid #ddd;padding:5px">
+				<div class="common-block-left-right" style="text-align: center;">
+					<div style="width:20%;background: #EEE;">左</div>
+					<div style="width:20%;background: #EEE;">右</div>
+					<div style="background: #ddd;">中</div>
+				</div>
+				<div class="common-block-left-right" style="margin:10px 0;">
+					<span>T恤</span>
+					<span>HB664545646</span>
+				</div>
+				<div class="common-block-left-right">
+					<span>订<b>3</b>件</span>
+					<span>金额<u class="common-price common-red">889</u></span>
+				</div>
+			</div>
+<pre>
+&lt;div class="common-block-left-right"&gt;
+    &lt;div&gt;左&lt;/div&gt;
+    &lt;div&gt;右&lt;/div&gt;
+    &lt;div&gt;中&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="common-block-left-right"&gt;
+    &lt;span&gt;T恤&lt;/span&gt;
+    &lt;span&gt;HB664545646&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="common-block-left-right"&gt;
+    &lt;span&gt;订&lt;b&gt;3&lt;/b&gt;件&lt;/span&gt;
+    &lt;span&gt;金额&lt;u class="common-price common-red"&gt;889&lt;/u&gt;&lt;/span&gt;
+&lt;/div&gt;
+</pre>
+		</div>
+		<input type="checkbox" name="" class="toggle-checkbox" />
+		<h3>轻提示（点击查看效果）&nbsp;&nbsp;&nbsp;<label class="btn btn-primary"></label></h3>
+		<div id="tip">
+			<button class="btn btn-default" data-position="center" data-toggle="tooltip" title="center">中(默认)</button> &nbsp;
+			<button class="btn btn-default" data-position="top" data-toggle="tooltip" title="top">上</button> &nbsp;
+			<button class="btn btn-default" data-position="bottom" data-toggle="tooltip" title="bottom">下</button> &nbsp;
+			<button class="btn btn-default" data-position="left" data-toggle="tooltip" title="left">左</button> &nbsp;
+			<button class="btn btn-default" data-position="right" data-toggle="tooltip" title="right">右</button> &nbsp;
+			<button class="btn btn-default" data-position="left-top" data-toggle="tooltip" title="left-top">左上</button> &nbsp;
+			<button class="btn btn-default" data-position="left-bottom" data-toggle="tooltip" title="left-bottom">左下</button> &nbsp;
+			<button class="btn btn-default" data-position="right-top" data-toggle="tooltip" title="right-top">右上</button> &nbsp;
+			<button class="btn btn-default" data-position="right-bottom" data-toggle="tooltip" title="right-bottom">右下</button>
+			<pre>
+//第二和第三个参数为可选
+Helper.tip('轻提示内容');
+Helper.tip('自定时间和位置的轻提示',3000,'top');
+Helper.tip('&lt;div&gt;第一行&lt;/div&gt;&lt;div&gt;第二行&lt;/div&gt;');
+</pre>
+		</div>
+		<script>
+			$("#tip button").on("click", function() {
+				//第二和第三个参数为可选
+				Helper.tip("轻提示内容", 1000, $(this).attr("data-position"));
+			});
+		</script>
+		<input type="checkbox" name="" class="toggle-checkbox" />
+		<h3>弹窗&nbsp;&nbsp;&nbsp;<label class="btn btn-primary"></label></h3>
+		<div>
+			<button id="dialog_btn">弹窗效果</button>
+			<pre>
+$(document).on('click","#dialog_btn",function(){
+    Helper.dialog({
+        content:"确定要取消审核吗？",
+        buttons:{
+            //方式一
+            "确定":function(){
+                $(this).remove();
+                Helper.tip("点了 确定",1000);
+            },
+            "取消":function(){
+                $(this).remove();
+                Helper.tip("点了 取消",2000,"bottom");
+            },
+            //方式二
+            "查看说明":{
+                style:{
+                    fontWeight:"bold"
+                },
+                attr:{
+                    id:"readBtn"
+                },
+                className:"read-btn",
+                method:function(){
+                    Helper.tip("点了 查看说明",3000,"top");
+                }
+            }
+        }
+    });
+})
+</pre>
+		</div>
+
+		<script type="text/javascript">
+			//弹窗
+			$(document).on("click", "#dialog_btn", function() {
+				Helper.dialog({
+					content: "确定要取消审核吗？",
+					/*style:{	//弹窗内容区样式
+						color:"#000"
+					},*/
+					/*overlay:{	//遮罩层样式
+						background:""
+					},*/
+					/*dialogStyle:{	//弹窗样式
+						background:"green"
+					},*/
+					buttons: {
+						"确定": function() {
+							$(this).remove();
+							Helper.tip("点了 确定", 1000);
+						},
+						"取消": function() {
+							$(this).remove();
+							Helper.tip("点了 取消", 2000, "bottom");
+						},
+						"查看说明": {
+							style: {
+								fontWeight: "bold"
+							},
+							attr: {
+								id: "readBtn"
+							},
+							className: "read-btn",
+							method: function() {
+								Helper.tip('<div>点了 查看说明</div><div>此按钮还增加了id="readBtn" class="read-btn"</div>', 3000, "top");
+							}
+						}
+					}
+				});
+			})
+		</script>
+		<input type="checkbox" name="" class="toggle-checkbox" />
+		<h3>Tooltip工具提示&nbsp;&nbsp;&nbsp;<label class="btn btn-primary"></label></h3>
+		<div>
+			<button type="button" class="btn btn-default" data-toggle="tooltip" title="默认的 Tooltip"> 默认的 Tooltip</button> &nbsp;
+			<a href="javascript:;" data-toggle="tooltip" data-placement="bottom" title="底部的 Tooltip">底部的 Tooltip</a>
+			<pre>
+&lt;button type="button" class="btn btn-default" data-toggle="tooltip"  title="默认的 Tooltip"&gt; 默认的 Tooltip&lt;/button&gt;
+&lt;a href="#" data-toggle="tooltip" data-placement="bottom" title="底部的 Tooltip"&gt;底部的 Tooltip&lt;/a&gt;
+
+//js代码
+$("[data-toggle='tooltip']").tooltip();
+</pre>
+		</div>
+		<script>
+			//工具提示
+			$("[data-toggle='tooltip']").tooltip();
+		</script>
+		<!--地区联动选择-->
+		<script src="http://static.pinpai.org/resource/js/plugin/bootstrap/bootstrap-distpicker.data.min.js"></script>
+		<script src="http://static.pinpai.org/resource/js/plugin/bootstrap/bootstrap-distpicker.min.js"></script>
+		<input type="checkbox" name="" class="toggle-checkbox" />
+		<h3>地区联动&nbsp;&nbsp;&nbsp;<label class="btn btn-primary"></label></h3>
+		<div>
+			<div id="distpicker2">
+				<select></select>
+				<select></select>
+				<select></select>
+			</div>
+			<br>
+			<div id="distpicker3">
+				<select></select>
+				<select></select>
+				<select></select>
+			</div>
+			<pre>
+&lt;div id="distpicker2"&gt;
+    &lt;select&gt;&lt;/select&gt;
+    &lt;select&gt;&lt;/select&gt;
+    &lt;select&gt;&lt;/select&gt;
+&lt;/div&gt;
+$("#distpicker2").distpicker({
+    province: "浙江省",
+    city: "杭州市",
+    district: "西湖区"
+});
+</pre>
+		</div>
+		<script type="text/javascript">
+			$("#distpicker2").distpicker({
+				province: "浙江省",
+				city: "杭州市",
+				district: "西湖区"
+			});
+			$("#distpicker3").distpicker({
+				province: "湖南省",
+				city: "长沙市",
+				district: "宁乡县"
+			});
+		</script>
+
+		<input type="checkbox" name="" class="toggle-checkbox" />
+		<h3>多项选择&nbsp;&nbsp;&nbsp;<label class="btn btn-primary"></label></h3>
+		<div>
+			<select class="form-control selectpicker" id="select1" multiple>
+				<option value="-1">--品牌--</option>
+				<option value="94">测试品牌</option>
+				<option value="96">海贝集团</option>
+				<option value="99">MODA</option>
+				<option value="100">only</option>
+				<option value="107">十一月</option>
+				<option value="108">inmm</option>
+				<option value="109">幻影时代</option>
+				<option value="94">测试品牌</option>
+				<option value="96">海贝集团</option>
+				<option value="99">MODA</option>
+				<option value="100">only</option>
+				<option value="107">十一月</option>
+				<option value="108">inmm</option>
+			</select>
+			<select class="form-control selectpicker" id="select2" multiple>
+				<option value="96">海贝集团</option>
+				<option value="99">MODA</option>
+				<option value="100">only</option>
+				<option value="107">十一月</option>
+				<option value="108">inmm</option>
+				<option value="108">inmm</option>
+				<option value="109">幻影时代</option>
+				<option value="94">测试品牌</option>
+			</select>
+			<pre>
+//直接调用
+Helper.selectpicker(".selectpicker");
+
+//已默认以下选项
+{
+    noneSelectedText:"请选择",
+    style: 'btn-default',
+    noneSelectedText: "请选择",
+    liveSearch: true, //开启搜索框
+    actionsBox: true, //在下拉选项添加选中所有和取消选中的按钮
+    selectAllText: "全选",
+    deselectAllText: "取消全选"
+}
+
+或
+
+Helper.selectpicker("#select1,#select2",[
+    {noneSelectedText:"区域",width:100},
+    {noneSelectedText:"门店",width:200}
+]);
+
+或
+
+Helper.selectpicker({
+    target:"#select1,#select2",
+    option:[
+        {noneSelectedText:"区域",width:100},
+        {noneSelectedText:"门店",width:200}
+    ]
+});
+
+或直接调用通过bootstrap-select调用
+
+$('.selectpicker').selectpicker({
+    style: 'btn-default',
+    width:180,
+    noneSelectedText:"请选择",
+    liveSearch:true, //开启搜索框
+    actionsBox:true, //在下拉选项添加选中所有和取消选中的按钮
+    selectAllText:"全选",
+    deselectAllText:"取消全选",
+    autofocus:""
+});
+</pre>
+		</div>
+		<script>
+			//多项下拉选择框
+			//方式一
+			//      Helper.selectpicker(".selectpicker",[
+			//      	{noneSelectedText:"请选择",width:100},
+			//      	{width:200}
+			//      	]);
+			//方式二
+			Helper.selectpicker({
+				target: "#select1,#select2",
+				option: [{
+					noneSelectedText: "区域",
+					width: 100
+				}, {
+					noneSelectedText: "门店",
+					width: 200
+				}]
+			});
+			//方式三
+			//		$('#select2').selectpicker({
+			//			style: 'btn-default',
+			//          width:180,
+			//          noneSelectedText:"请选择",
+			//          liveSearch:true, //开启搜索框
+			//          actionsBox:true, //在下拉选项添加选中所有和取消选中的按钮
+			//          selectAllText:"全选",
+			//          deselectAllText:"取消全选",
+			//          autofocus:""
+			//		});
+		</script>
+
+		<input type="checkbox" name="" class="toggle-checkbox" />
+		<h3>日期控件&nbsp;&nbsp;&nbsp;<label class="btn btn-primary"></label></h3>
+		<div>
+			<div class="container">
+				<form action="" class="form-horizontal" role="form">
+					<fieldset>
+						<legend>日期控件</legend>
+						<div class="form-group">
+							<label for="dtp_input1" class="col-md-2 control-label">DateTime Picking</label>
+							<div class="input-group date form_datetime col-md-5" data-date="1979-09-16T05:25:07Z" data-date-format="dd MM yyyy - HH:ii p" data-link-field="dtp_input1">
+								<input class="form-control" size="16" type="text" value="" readonly>
+								<span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+								<span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+							</div>
+							<input type="hidden" id="dtp_input1" value="" /><br/>
+						</div>
+						<div class="form-group">
+							<label for="dtp_input2" class="col-md-2 control-label">Date Picking</label>
+							<div class="input-group date form_date col-md-5" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+								<input class="form-control" size="16" type="text" value="" readonly>
+								<span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+								<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+							</div>
+							<input type="hidden" id="dtp_input2" value="" /><br/>
+						</div>
+						<div class="form-group">
+							<label for="dtp_input3" class="col-md-2 control-label">Time Picking</label>
+							<div class="input-group date form_time col-md-5" data-date="" data-date-format="hh:ii" data-link-field="dtp_input3" data-link-format="hh:ii">
+								<input class="form-control" size="16" type="text" value="" readonly>
+								<span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+								<span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
+							</div>
+							<input type="hidden" id="dtp_input3" value="" /><br/>
+						</div>
+					</fieldset>
+				</form>
+			</div>
+			<pre>
+$('.form_datetime').datetimepicker({
+    //language:  'fr',
+    weekStart: 1,
+    todayBtn:  1,
+    autoclose: 1,
+    todayHighlight: 1,
+    startView: 2,
+    forceParse: 0,
+    showMeridian: 1
+});
+$('.form_date').datetimepicker({
+    language:  'fr',
+    weekStart: 1,
+    todayBtn:  1,
+    autoclose: 1,
+    todayHighlight: 1,
+    startView: 2,
+    minView: 2,
+    forceParse: 0
+});
+$('.form_time').datetimepicker({
+    language:  'fr',
+    weekStart: 1,
+    todayBtn:  1,
+    autoclose: 1,
+    todayHighlight: 1,
+    startView: 1,
+    minView: 0,
+    maxView: 1,
+    forceParse: 0
+});
+</pre>
+
+		</div>
+		<!--日期时间选择-->
+		<link rel="stylesheet" type="text/css" href="http://static.pinpai.org/resource/js/plugin/bootstrap/bootstrap-datetimepicker.min.css" />
+		<script type="text/javascript" src="http://static.pinpai.org/resource/js/plugin/bootstrap/bootstrap-datetimepicker.min.js" charset="UTF-8"></script>
+		<script type="text/javascript" src="http://static.pinpai.org/resource/js/plugin/bootstrap/locales/bootstrap-datetimepicker.fr.js" charset="UTF-8"></script>
+
+		<script>
+			$('.form_datetime').datetimepicker({
+				//language:  'fr',
+				weekStart: 1,
+				todayBtn: 1,
+				autoclose: 1,
+				todayHighlight: 1,
+				startView: 2,
+				forceParse: 0,
+				showMeridian: 1
+			});
+			$('.form_date').datetimepicker({
+				language: 'fr',
+				weekStart: 1,
+				todayBtn: 1,
+				autoclose: 1,
+				todayHighlight: 1,
+				startView: 2,
+				minView: 2,
+				forceParse: 0
+			});
+			$('.form_time').datetimepicker({
+				language: 'fr',
+				weekStart: 1,
+				todayBtn: 1,
+				autoclose: 1,
+				todayHighlight: 1,
+				startView: 1,
+				minView: 0,
+				maxView: 1,
+				forceParse: 0
+			});
+		</script>
+
+		<input type="checkbox" name="" class="toggle-checkbox" />
+		<h3>触屏滚动模式(.scroll-touch)&nbsp;&nbsp;&nbsp;<label class="btn btn-primary"></label></h3>
+		<div>
+			<pre>
+&lt;!--在body下直接新建一个div标签(ipad下才能看效果)，如：--&gt;
+&lt;body&gt;
+    &lt;div class="scroll-touch"&gt;
+        &lt;div页面的内容&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+</pre>
+			<iframe src="iframe.html" style="width:100%;height:400px;border: 1px solid #DDD;"></iframe>
+		</div>
+		<script type="text/javascript">
+			//回到顶部
+			Helper.totop();
+			//给每个checkbox命名指定ID
+			$(".toggle-checkbox").each(function(i) {
+				$(this).attr("id", "id" + i);
+				$(this).next().find("label").attr("for", "id" + i)
+			})
+		</script>
+	</body>
+
+</html>

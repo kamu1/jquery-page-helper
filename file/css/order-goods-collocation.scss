@@ -1,0 +1,72 @@
+@charset "utf-8";
+@import "./public.scss";
+$mainMargin: 30px/2;
+.sort-search-bar{
+    padding:10px $mainMargin;
+    background: $borderGary;
+    >label{
+        display: inline-block;
+        text-align: center;
+        font-weight: normal;
+        cursor:pointer; 
+        &:first-child{
+            span{
+                border:1px solid $mainGold;
+                min-width: 75px;
+            }
+        }
+        input{
+            display: none;
+            +*{
+                position: relative;
+                display: block;
+                background: #FFF;
+                border:1px solid #fff;
+                min-width: 60px;
+                height:33px;
+                line-height: 33px;
+                border-radius:3px;
+            }
+            &:checked{ 
+                +*{
+                    &:after{
+                        content: "";
+                        position: absolute;
+                        top:1px;
+                        right:1px;
+                        line-height: 1px;
+                        width:12px;
+                        height:12px;
+                        background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAQBAMAAAD+CqKmAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAbUExURQAAANQoLdQoLdQoLdQoLdQoLdQoLdQoLdQoLZOhOEAAAAAJdFJOUwD7qgXLTmQRNlTArZ8AAABTSURBVAjXY2DADloUEGwOQQcEp1GkAEnCnYGBNQFJglEIIcHAJqgM4gRCdCQKGQAVgyWgUoEiBhCtQClWiFqIVKCQAcyKQBG4BEg3QgIopYzF3QA5iQososeHnwAAAABJRU5ErkJggg==) no-repeat center;
+                        background-size: 100% auto;
+                    }
+                }
+            }
+        }
+    }
+}
+.info-list{
+    margin: $mainMargin;
+    li>*{
+        border:1px solid $borderGary;
+    }
+    .essential-info{
+        padding:8px 0;
+        &>*{
+            margin:auto .5em;
+            margin-top:10px;
+            line-height: 1em;
+            &.c-price{
+                font-size: 15px;
+            }
+            .c-left{
+                color: $mainGary;
+                b{ 
+                    margin: 0 2px;
+                    font-weight:normal;
+                    color: $mainBlack;
+                }
+            }
+        }
+    }
+}

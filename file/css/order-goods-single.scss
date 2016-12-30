@@ -1,0 +1,32 @@
+@charset "utf-8";
+@import "./public.scss";
+$mainMargin: 30px/2;
+.sort-search-bar{
+    padding:10px $mainMargin;
+    background: $borderGary;
+}
+.info-list{
+    margin: $mainMargin;
+    li>*{
+        border:1px solid $borderGary;
+    }
+    .essential-info{
+        padding:8px 0;
+        &>*{
+            margin:auto .5em;
+            margin-top:10px;
+            line-height: 1em;
+            &.c-price{
+                font-size: 15px;
+            }
+            .c-left{
+                color: $mainGary;
+                b{ 
+                    margin: 0 2px;
+                    font-weight:normal;
+                    color: $mainBlack;
+                }
+            }
+        }
+    }
+}

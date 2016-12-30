@@ -1,0 +1,4 @@
+插件标配的CSS跟插件本身的JS存放到同一目录
+如是jQuery UI插件，将：
+jquery.ui.min.js和jquery.ui.min-css
+都放到js/plugin/jQueryUi目录下
